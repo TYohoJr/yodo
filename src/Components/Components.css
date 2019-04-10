@@ -1,0 +1,10 @@
+.dropdown-content {
+    margin: 10px;
+    width: auto;
+    max-width: 90%;
+}
+
+#dropdown-menu {
+    width: auto;
+    background-color: rgba(128, 128, 128, 0.4);
+}
