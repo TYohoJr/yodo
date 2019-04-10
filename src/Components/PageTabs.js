@@ -4,7 +4,6 @@ import {
     Container,
     Row,
     Col,
-    NavbarBrand,
     Button,
 } from 'reactstrap';
 import { connect } from 'react-redux';

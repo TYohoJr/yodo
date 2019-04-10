@@ -1,6 +1,9 @@
 import React from 'react';
-import { CombineReducers, combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 import HomePage from './Home/HomePage';
+import UserAccount from './Components/UserAccount';
+import LogInDropdown from './Components/LogInDropdown';
+import LogOutDropdown from './Components/LogOutDropdown';
 
 const currentPageReducer = (state, action) => {
     if (!state) {
@@ -27,9 +30,17 @@ const logInReducer = (state, action) => {
             logInUsername: "",
             logInPassword: "",
             showPassword: "password",
+            userAccount: null,
+            statusDropdown: <LogInDropdown />
         }
     }
     switch (action.type) {
+        case "changeLogInStatus":
+            return state = {
+                ...state,
+                userAccount: <UserAccount />,
+                statusDropdown: <LogOutDropdown />
+            }
         case "changeLogInUsername":
             return state = {
                 ...state,
