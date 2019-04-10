@@ -1,10 +1,11 @@
 import React from 'react';
 import { CombineReducers, combineReducers } from 'redux';
+import HomePage from './Home/HomePage';
 
 const currentPageReducer = (state, action) => {
     if (!state) {
         state = {
-            currentPage: 'Page content'
+            currentPage: <HomePage />
         }
     }
     switch (action.type) {

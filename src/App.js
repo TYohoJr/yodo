@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import reducer from './reducers';
 import NavigationBar from './Components/NavigationBar';
 import CurrentPage from './CurrentPage';
+import PageTabs from './Components/PageTabs';
 
 const store = createStore(reducer);
 
@@ -14,8 +15,9 @@ export default class App extends Component {
       <Provider store={store}>
         <div className="App">
           <NavigationBar />
+          <PageTabs />
           <CurrentPage />
-      </div>
+        </div>
       </Provider>
     );
   }

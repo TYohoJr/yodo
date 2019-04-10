@@ -12,20 +12,14 @@ import {
     DropdownItem,
     Input,
     Button,
-    ButtonGroup,
-    NavItem,
-    NavLink,
-    Container,
-    Row,
-    Col
 } from 'reactstrap';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import SignUpModal from './SignUpModal';
 
 class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
-        this.changePage = this.changePage.bind(this);
         this.state = {
             isOpen: false,
             logIn: 'Log In'
@@ -38,13 +32,6 @@ class NavigationBar extends React.Component {
         });
     }
 
-    changePage(page) {
-        this.props.dispatch({
-            type: 'changePage',
-            currentPage: page
-        })
-    }
-
     render() {
         return (
             <div>
@@ -53,9 +40,6 @@ class NavigationBar extends React.Component {
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink onClick={() => this.changePage('New Page Content')}>Components</NavLink>
-                            </NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>
                                     {this.state.logIn}
