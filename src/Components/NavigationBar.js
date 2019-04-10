@@ -12,18 +12,23 @@ import {
     DropdownItem,
     Input,
     Button,
+    ButtonGroup,
     NavItem,
-    NavLink
+    NavLink,
+    Container,
+    Row,
+    Col
 } from 'reactstrap';
+import { connect } from 'react-redux'
 
-export default class NavigationBar extends React.Component {
+class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.changePage = this.changePage.bind(this);
         this.state = {
             isOpen: false,
-            test: 'test'
+            logIn: 'Log In'
         };
     }
 
@@ -49,11 +54,11 @@ export default class NavigationBar extends React.Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink onClick={this.changePage} href="#Components">Components</NavLink>
+                                <NavLink onClick={() => this.changePage('New Page Content')}>Components</NavLink>
                             </NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>
-                                    {this.state.test}
+                                    {this.state.logIn}
                                 </DropdownToggle>
                                 <DropdownMenu id='dropdown-menu' right>
                                     <Input className='dropdown-content' placeholder='Username' />
@@ -70,3 +75,5 @@ export default class NavigationBar extends React.Component {
         );
     }
 }
+
+export default connect((state) => (state))(NavigationBar);
