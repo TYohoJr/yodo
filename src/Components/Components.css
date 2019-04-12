@@ -8,3 +8,9 @@
     width: auto;
     background-color: rgba(128, 128, 128, 0.4);
 }
+
+#log-out-button {
+    /* color: black; */
+    font-weight: 500;
+    height: 100%
+}

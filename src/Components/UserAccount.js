@@ -1,6 +1,6 @@
 import React from 'react';
 import './Components.css';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown } from 'reactstrap';
 import { connect } from 'react-redux';
 import Cookies from 'universal-cookie';
 
@@ -28,18 +28,18 @@ class UserAccount extends React.Component {
 
   render() {
     return (
-      <ButtonDropdown id='account-dropdown' isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret>
-          {cookie.get('username')}
+        <UncontrolledDropdown nav inNavbar>
+        <DropdownToggle nav caret>
+            {cookie.get('username')}
         </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem header>Header</DropdownItem>
-          <DropdownItem disabled>Action</DropdownItem>
-          <DropdownItem>Another Action</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Another Action</DropdownItem>
+        <DropdownMenu id='dropdown-menu' right>
+            {/* <Input className='dropdown-content' value={this.props.logInReducer.logInUsername} onChange={this.onLogInUsernameChange} placeholder='Username' />
+            <Input className='dropdown-content' type='password' value={this.props.logInReducer.logInPassword} onChange={this.onLogInPasswordChange} placeholder='Password' />
+            <Button className='dropdown-content' color='success' onClick={this.logInUser}>Log In</Button> */}
+            <DropdownItem divider />
+            {/* <SignUpModal /> */}
         </DropdownMenu>
-      </ButtonDropdown>
+    </UncontrolledDropdown>
     );
   }
 }

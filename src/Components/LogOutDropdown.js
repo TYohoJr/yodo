@@ -14,23 +14,23 @@ import {
     Input,
     Button,
 } from 'reactstrap';
-import SignUpModal from './SignUpModal';
 
 class LogInDropdown extends Component {
     render() {
         return (
-            <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                    Log Out
-                </DropdownToggle>
-                <DropdownMenu id='dropdown-menu' right>
-                    <Input className='dropdown-content' value={this.props.logInReducer.logInUsername} onChange={this.onLogInUsernameChange} placeholder='Username' />
-                    <Input className='dropdown-content' type='password' value={this.props.logInReducer.logInPassword} onChange={this.onLogInPasswordChange} placeholder='Password' />
-                    <Button className='dropdown-content' color='success' onClick={this.logInUser}>Log In</Button>
-                    <DropdownItem divider />
-                    <SignUpModal />
-                </DropdownMenu>
-            </UncontrolledDropdown>
+            <Button color='danger' id='log-out-button'>Log Out</Button>
+            // <UncontrolledDropdown nav inNavbar>
+            //     <DropdownToggle nav caret>
+            //         Log Out
+            //     </DropdownToggle>
+            //     <DropdownMenu id='dropdown-menu' right>
+            //         <Input className='dropdown-content' value={this.props.logInReducer.logInUsername} onChange={this.onLogInUsernameChange} placeholder='Username' />
+            //         <Input className='dropdown-content' type='password' value={this.props.logInReducer.logInPassword} onChange={this.onLogInPasswordChange} placeholder='Password' />
+            //         <Button className='dropdown-content' color='success' onClick={this.logInUser}>Log In</Button>
+            //         <DropdownItem divider />
+            //         <SignUpModal />
+            //     </DropdownMenu>
+            // </UncontrolledDropdown>
         )
     }
 }
