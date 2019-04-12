@@ -29,6 +29,7 @@ class LogInDropdown extends Component {
             console.log(result)
             if (result.data.message === "Login successful!") {
                 sessionStorage.setItem('token', result.data.token);
+                sessionStorage.setItem('username', result.data.username);
                 this.props.dispatch({
                     type: 'loadingData'
                 });
@@ -43,7 +44,7 @@ class LogInDropdown extends Component {
                     this.props.dispatch({
                         type: "showHomepage"
                     })
-                }, 2000)
+                }, 2000);
             } else {
                 return alert(result.data.message);
             }
