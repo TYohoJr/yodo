@@ -24,10 +24,6 @@ class NavigationBar extends React.Component {
         });
     }
 
-    componentWillUnmount() {
-        localStorage.clear();
-    }
-
     render() {
         return (
             <div>

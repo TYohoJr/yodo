@@ -45,7 +45,7 @@ class SignUpModal extends React.Component {
         }
         axios.post("/signUpData", { username: account.createUsername, password: account.createPassword1, dateCreated: new Date().toLocaleString(),}).then((result) => {
             if (result.data.message === "Sign Up Successful!") {
-                alert(result.data.message);
+                alert(`${result.data.message}\nPlease log in.`);
                 this.toggle();
             } else {
                 alert(result.data.message);

@@ -4,6 +4,7 @@ import HomePage from './Home/HomePage';
 import UserAccount from './Components/UserAccount';
 import LogInDropdown from './Components/LogInDropdown';
 import LogOutDropdown from './Components/LogOutDropdown';
+import LoadingSpinner from './Components/LoadingSpinner';
 
 const userDataReducer = (state, action) => {
     if (!state) {
@@ -35,6 +36,16 @@ const currentPageReducer = (state, action) => {
         }
     }
     switch (action.type) {
+        case "loadingData":
+            return state = {
+                ...state,
+                currentPage: <LoadingSpinner />
+            }
+        case "showHomepage":
+            return state = {
+                ...state,
+                currentPage: <HomePage />
+            }
         case 'changePage':
             return state = {
                 ...state,

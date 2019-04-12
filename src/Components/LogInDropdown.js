@@ -26,8 +26,12 @@ class LogInDropdown extends Component {
             return alert('You are already logged in. If you would like to use a different account, please log out and then back in.')
         }
         axios.post("/userLogIn", { username: this.props.logInReducer.logInUsername, password: this.props.logInReducer.logInPassword }).then((result) => {
+            console.log(result)
             if (result.data.message === "Login successful!") {
-                localStorage.setItem('token', result.data.token);
+                sessionStorage.setItem('token', result.data.token);
+                this.props.dispatch({
+                    type: 'loadingData'
+                });
                 this.props.dispatch({
                     type: 'userLogIn',
                     data: result.data
@@ -36,6 +40,9 @@ class LogInDropdown extends Component {
                     this.props.dispatch({
                         type: "changeLogInStatus",
                     });
+                    this.props.dispatch({
+                        type: "showHomepage"
+                    })
                 }, 2000)
             } else {
                 return alert(result.data.message);
