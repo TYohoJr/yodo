@@ -3,9 +3,6 @@ import './Components.css';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
-
-const cookie = new Cookies();
 
 class SignUpModal extends React.Component {
     constructor(props) {
@@ -22,7 +19,7 @@ class SignUpModal extends React.Component {
     }
 
     toggle() {
-        if (cookie.get('username')) {
+        if (this.props.userDataReducer.data) {
             return alert('Please log out before creating a new account')
         }
         if (this.state.modal === false) {

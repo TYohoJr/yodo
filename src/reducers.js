@@ -5,6 +5,29 @@ import UserAccount from './Components/UserAccount';
 import LogInDropdown from './Components/LogInDropdown';
 import LogOutDropdown from './Components/LogOutDropdown';
 
+const userDataReducer = (state, action) => {
+    if (!state) {
+        state = {
+            data: null
+        }
+    }
+    switch (action.type) {
+        case 'userLogIn':
+            return state = {
+                ...state,
+                data: action.data
+            }
+        case 'logOutUser':
+            return state = {
+                data: null
+            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 const currentPageReducer = (state, action) => {
     if (!state) {
         state = {
@@ -162,4 +185,5 @@ export default combineReducers({
     logInReducer,
     changePasswordReducer,
     createAccountReducer,
+    userDataReducer,
 });

@@ -11,9 +11,6 @@ import {
 } from 'reactstrap';
 import SignUpModal from './SignUpModal';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
-
-const cookie = new Cookies();
 
 class LogInDropdown extends Component {
     constructor() {
@@ -25,17 +22,21 @@ class LogInDropdown extends Component {
     }
 
     logInUser() {
-        if (cookie.get('username')) {
+        if (this.props.userDataReducer.username) {
             return alert('You are already logged in. If you would like to use a different account, please log out and then back in.')
         }
         axios.post("/userLogIn", { username: this.props.logInReducer.logInUsername, password: this.props.logInReducer.logInPassword }).then((result) => {
             if (result.data.message === "Login successful!") {
                 localStorage.setItem('token', result.data.token);
-                cookie.set('username', result.data.username);
-                // cookie.set('data', result.data.user);
                 this.props.dispatch({
-                    type: "changeLogInStatus",
+                    type: 'userLogIn',
+                    data: result.data
                 });
+                setTimeout(() => {
+                    this.props.dispatch({
+                        type: "changeLogInStatus",
+                    });
+                }, 2000)
             } else {
                 return alert(result.data.message);
             }

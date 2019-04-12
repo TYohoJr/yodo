@@ -2,9 +2,6 @@ import React from 'react';
 import './Components.css';
 import { DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown } from 'reactstrap';
 import { connect } from 'react-redux';
-import Cookies from 'universal-cookie';
-
-const cookie = new Cookies();
 
 class UserAccount extends React.Component {
   constructor(props) {
@@ -12,7 +9,8 @@ class UserAccount extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      dropdownOpen: false
+      dropdownOpen: false,
+      username: 'Loading..'
     };
   }
 
@@ -23,14 +21,19 @@ class UserAccount extends React.Component {
   }
 
   componentWillMount() {
-
+      debugger
+      if (this.props.userDataReducer.data) {
+          this.setState({
+              username: this.props.userDataReducer.data.username
+          })
+      }
   }
 
   render() {
     return (
         <UncontrolledDropdown nav inNavbar>
         <DropdownToggle nav caret>
-            {cookie.get('username')}
+            {this.state.username}
         </DropdownToggle>
         <DropdownMenu id='dropdown-menu' right>
             {/* <Input className='dropdown-content' value={this.props.logInReducer.logInUsername} onChange={this.onLogInUsernameChange} placeholder='Username' />

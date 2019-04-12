@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import './Components.css';
 import { connect } from 'react-redux';
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    Input,
+    // Collapse,
+    // Navbar,
+    // NavbarToggler,
+    // NavbarBrand,
+    // Nav,
+    // UncontrolledDropdown,
+    // DropdownToggle,
+    // DropdownMenu,
+    // DropdownItem,
+    // Input,
     Button,
 } from 'reactstrap';
 
