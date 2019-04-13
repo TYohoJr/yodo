@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class Transactions extends Component {
     render() {
         return (
-            <Table id='transactions-container'>
+            <Table className='home-page-contents'>
                 <thead>
                     <tr>
                         <th>#</th>

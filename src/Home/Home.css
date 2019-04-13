@@ -15,7 +15,7 @@
     margin-top: 15%
 }
 
-#transactions-container {
+.home-page-contents {
     max-width: 80%;
-    color: white
+    color: white!important;
 }
