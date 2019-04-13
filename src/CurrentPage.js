@@ -31,6 +31,7 @@ class CurrentPage extends Component {
             })
         }
     }
+    
     render() {
         return (
             <div>

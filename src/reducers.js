@@ -58,6 +58,24 @@ const currentPageReducer = (state, action) => {
     }
 }
 
+const homePageReducer = (state, action) => {
+    if (!state) {
+        state = {
+            currentTab: 'test'
+        }
+    }
+    switch (action.type) {
+        case "changeHomePageTab":
+            return state = {
+                ...state,
+                currentTab: action.currentTab            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 const logInReducer = (state, action) => {
     if (!state) {
         state = {
@@ -197,4 +215,5 @@ export default combineReducers({
     changePasswordReducer,
     createAccountReducer,
     userDataReducer,
+    homePageReducer,
 });

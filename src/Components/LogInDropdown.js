@@ -26,7 +26,6 @@ class LogInDropdown extends Component {
             return alert('You are already logged in. If you would like to use a different account, please log out and then back in.')
         }
         axios.post("/userLogIn", { username: this.props.logInReducer.logInUsername, password: this.props.logInReducer.logInPassword }).then((result) => {
-            console.log(result)
             if (result.data.message === "Login successful!") {
                 sessionStorage.setItem('token', result.data.token);
                 sessionStorage.setItem('username', result.data.username);

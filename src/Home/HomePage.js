@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import './Home.css';
 import { connect } from 'react-redux';
+import NavigationBarHome from './NavigationBarHome';
 
 class HomePage extends Component {
     render() {
         return (
             <div>
-                Home Page Content
+                <NavigationBarHome />
+                {this.props.homePageReducer.currentTab}
             </div>
         )
     }
