@@ -5,6 +5,7 @@ import UserAccount from './Components/UserAccount';
 import LogInDropdown from './Components/LogInDropdown';
 import LogOutDropdown from './Components/LogOutDropdown';
 import LoadingSpinner from './Components/LoadingSpinner';
+import Transactions from './Home/Transactions';
 
 const userDataReducer = (state, action) => {
     if (!state) {
@@ -61,7 +62,7 @@ const currentPageReducer = (state, action) => {
 const homePageReducer = (state, action) => {
     if (!state) {
         state = {
-            currentTab: 'test'
+            currentTab: <Transactions />
         }
     }
     switch (action.type) {

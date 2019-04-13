@@ -29,14 +29,16 @@ class UserAccount extends React.Component {
 
     render() {
         return (
-            <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                    {this.state.username}
-                </DropdownToggle>
-                <DropdownMenu id='dropdown-menu' right>
-                    <DropdownItem divider />
-                </DropdownMenu>
-            </UncontrolledDropdown>
+            <div>
+                <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav caret>
+                        User: {this.state.username}
+                    </DropdownToggle>
+                    <DropdownMenu id='dropdown-menu' right>
+                        <DropdownItem divider />
+                    </DropdownMenu>
+                </UncontrolledDropdown>
+            </div>
         );
     }
 }

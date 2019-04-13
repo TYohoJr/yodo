@@ -11,7 +11,8 @@
 
 #log-out-button {
     font-weight: 500;
-    height: 100%;
+    width: 100px;
+    margin-top: 25%
 }
 
 #navbar-brand-container {

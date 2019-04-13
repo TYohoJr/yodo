@@ -16,7 +16,9 @@ class LogInDropdown extends Component {
 
     render() {
         return (
-            <Button color='danger' id='log-out-button' onClick={this.logOut}>Log Out</Button>
+            <div id='log-out-button-container'>
+                <Button color='danger' id='log-out-button' onClick={this.logOut}>Log Out</Button>
+            </div>
         )
     }
 }
