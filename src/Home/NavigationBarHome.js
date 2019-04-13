@@ -31,6 +31,13 @@ class NavigationBarHome extends React.Component {
         });
     }
 
+    componentWillMount() {
+        this.props.dispatch({
+            type: 'changeHomePageTab',
+            currentTab: <Transactions />
+        })
+    }
+
     render() {
         return (
             <div>
