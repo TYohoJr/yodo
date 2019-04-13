@@ -77,6 +77,24 @@ const homePageReducer = (state, action) => {
     }
 }
 
+const calculatorsReducer = (state, action) => {
+    if (!state) {
+        state = {
+            currentTab: null
+        }
+    }
+    switch (action.type) {
+        case "changeCalculatorsPageTab":
+            return state = {
+                ...state,
+                currentTab: action.currentTab            }
+        default:
+            return state = {
+                ...state
+            }
+    }
+}
+
 const logInReducer = (state, action) => {
     if (!state) {
         state = {
@@ -217,4 +235,5 @@ export default combineReducers({
     createAccountReducer,
     userDataReducer,
     homePageReducer,
+    calculatorsReducer,
 });

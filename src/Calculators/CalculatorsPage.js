@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import './Calculators.css';
 import { connect } from 'react-redux';
+import NavigationBarCalculators from './NavigationBarCalculators';
 
 class CalculatorsPage extends Component {
     render() {
         return (
             <div>
-                Calculators Page Content
+                <NavigationBarCalculators />
+                {this.props.calculatorsReducer.currentTab}
             </div>
         )
     }
