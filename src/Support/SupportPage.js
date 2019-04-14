@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Support.css';
 import { connect } from 'react-redux';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import DatePicker from 'react-datepicker';
 import axios from 'axios';
 import SuccessPage from './SuccessPage';
@@ -43,15 +43,16 @@ class SupportPage extends Component {
         this.props.dispatch({
             type: 'loadingData'
         })
-        const fileData = new FormData();
-        fileData.append('file', this.state.file);
+        // const fileData = new FormData();
+        // fileData.append('file', this.state.file);
         const userData = {
             name: this.state.name,
             email: this.state.email,
             date: this.state.startDate,
             details: this.state.details,
         }
-        axios.post('/supportUpload', fileData, { token: sessionStorage.getItem('token') }).then((result) => {
+        axios.post('/supportUpload', { userData, token: sessionStorage.getItem('token') }).then((result) => {
+            console.log(result)
             this.props.dispatch({
                 type: 'changePage',
                 currentPage: <SuccessPage />
@@ -101,10 +102,10 @@ class SupportPage extends Component {
                     <Input type="textarea" maxLength='500' placeholder='Please explain what you are having trouble with' onChange={this.onDetailsChange} />
                     {this.state.details.length}/500
                 </FormGroup>
-                <FormGroup>
+                {/* <FormGroup>
                     <Label for="exampleFile">Supporting File</Label>
-                    <Input type="file" name="file" id="file" onChange={this.handleFile} />
-                </FormGroup>
+                    <Input disabled type="file" name="file" id="file" onChange={this.handleFile} />
+                </FormGroup> */}
                 <Button color='success' onClick={this.uploadHandler}>Submit</Button>
             </Form>
         );
