@@ -3,7 +3,7 @@ import './Calculators.css';
 import { connect } from 'react-redux';
 import { Input, Label, Form, FormGroup, Col, Row, Button, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import classnames from 'classnames';
-import { LoanPayOffPayment } from '../Functions';
+import { LoanPayOffMonths } from '../Functions';
 
 class LoanPayOffCalc extends Component {
     constructor() {
@@ -80,7 +80,8 @@ class LoanPayOffCalc extends Component {
     }
 
     calculate() {
-        console.log(LoanPayOffPayment({...this.state}));
+        let results = LoanPayOffMonths({...this.state});
+        console.log(results);
     }
 
     render() {
