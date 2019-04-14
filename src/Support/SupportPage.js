@@ -39,7 +39,7 @@ class SupportPage extends Component {
     }
 
     uploadHandler() {
-        if(!this.state.email) {
+        if (!this.state.email) {
             return alert('Please log in to send a support ticket')
         }
         this.props.dispatch({
@@ -53,7 +53,6 @@ class SupportPage extends Component {
             details: this.state.details,
         }
         axios.post('/supportUpload', { userData, token: sessionStorage.getItem('token') }).then((result) => {
-            console.log(result)
             this.props.dispatch({
                 type: 'changePage',
                 currentPage: <SuccessPage />

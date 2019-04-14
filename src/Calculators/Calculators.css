@@ -1,0 +1,17 @@
+.calculator-page-contents {
+    /* max-width: 80%; */
+    color:white!important;
+    margin: 0 auto;
+}
+
+#calculators-page-tabs {
+    width: 20%;
+    background-color: rgba(0, 0, 0, 0.178);
+    height: 80vh;
+    overflow: auto;
+    float: left;
+}
+
+.loan-payoff-details-tab {
+    width: 50%;
+}

@@ -32,7 +32,7 @@ class UserAccount extends React.Component {
             // <div id='user-account-container'>
                 <UncontrolledDropdown nav inNavbar id='user-account-container'>
                     <DropdownToggle nav caret>
-                        User: {this.state.username}
+                        {this.state.username}
                     </DropdownToggle>
                     <DropdownMenu id='dropdown-menu' right>
                         <DropdownItem divider />

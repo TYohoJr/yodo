@@ -41,7 +41,7 @@ class NavigationBarHome extends React.Component {
     render() {
         return (
             <div>
-                <Nav tabs vertical>
+                <Nav tabs vertical id='home-page-tabs'>
                     <NavItem>
                         <NavLink
                             className={classnames({ active: this.state.activeTab === '1' })}
