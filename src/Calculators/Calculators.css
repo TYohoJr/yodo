@@ -15,3 +15,8 @@
 .loan-payoff-details-tab {
     width: 50%;
 }
+
+.calc-table {
+    max-width: 40%;
+    margin:15px auto;
+}

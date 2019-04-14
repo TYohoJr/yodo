@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Calculators.css';
 import { connect } from 'react-redux';
-import { Input, Label, Form, FormGroup, Col, Row, Button, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import { Input, Label, Form, FormGroup, Col, Row, Button, Nav, NavItem, NavLink, TabContent, TabPane, Table } from 'reactstrap';
 import classnames from 'classnames';
 import { LoanPayOffMonths } from '../Functions';
+import ResultsTable from './ResultsTable';
 
 class LoanPayOffCalc extends Component {
     constructor() {
@@ -21,6 +22,7 @@ class LoanPayOffCalc extends Component {
             loanApr: '',
             loanMonths: ',',
             loanPayment: '',
+            resultsTable: null
         }
     }
 
@@ -76,12 +78,22 @@ class LoanPayOffCalc extends Component {
             loanApr: '',
             loanMonths: ',',
             loanPayment: '',
+            resultsTable: null
         })
     }
 
     calculate() {
-        let results = LoanPayOffMonths({...this.state});
-        console.log(results);
+        // if(this.state.resultsTable) {
+        //     this.resetForm();
+        // }
+        // if (this.state.activeTab === '1') {
+
+        // } else if (this.state.activeTab === '2') {
+            // debugger
+            this.setState({
+                resultsTable: <ResultsTable data={LoanPayOffMonths({ ...this.state })} />
+            });
+        // }
     }
 
     render() {
@@ -147,7 +159,9 @@ class LoanPayOffCalc extends Component {
                     </Row>
                     <Button color='danger' onClick={this.resetForm}>Reset</Button>
                     <Button color='primary' onClick={this.calculate}>Submit</Button>
+                    {this.state.resultsTable}
                 </Form>
+
             </div>
         )
     }
