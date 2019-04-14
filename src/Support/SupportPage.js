@@ -39,23 +39,25 @@ class SupportPage extends Component {
     }
 
     uploadHandler() {
+        if(!this.state.email) {
+            return alert('Please log in to send a support ticket')
+        }
         this.props.dispatch({
             type: 'loadingData'
         })
         // const fileData = new FormData();
         // fileData.append('file', this.state.file);
         let userData = {
-            email: sessionStorage.getItem('username'),
+            email: this.state.email,
             date: this.state.startDate,
             details: this.state.details,
         }
-        console.log(userData)
         axios.post('/supportUpload', { userData, token: sessionStorage.getItem('token') }).then((result) => {
             console.log(result)
             this.props.dispatch({
                 type: 'changePage',
                 currentPage: <SuccessPage />
-            })
+            });
         })
     }
 
@@ -71,6 +73,21 @@ class SupportPage extends Component {
         })
     }
 
+    componentWillMount() {
+        const email = sessionStorage.getItem('username');
+        if (email) {
+            this.setState({
+                email
+            })
+        }
+        // if(this.props.userDataReducer.data === null) {
+        //     this.props.dispatch({
+        //         type: 'changePage',
+        //         currentPage: <SuccessPage />
+        //     });
+        // }
+    }
+
     render() {
         return (
             <Form id='support-form'>
@@ -84,7 +101,7 @@ class SupportPage extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label>Email</Label>
-                    <Input disabled type="email" value={this.props.userDataReducer.data.username} maxLength='50' onChange={this.onEmailChange} />
+                    <Input disabled type="email" value={this.state.email || 'Please log in to send a support ticket'} maxLength='50' onChange={this.onEmailChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label>Details:</Label>
