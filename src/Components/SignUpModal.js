@@ -100,8 +100,8 @@ class SignUpModal extends React.Component {
                     <ModalHeader toggle={this.toggle}>Create Account</ModalHeader>
                     <ModalBody>
                         <div>
-                            <p>Username</p>
-                            <Input type="text" value={this.props.createAccountReducer.createUsername} onChange={this.onCreateUsernameChange} />
+                            <p>Email</p>
+                            <Input type="email" value={this.props.createAccountReducer.createUsername} onChange={this.onCreateUsernameChange} />
                             <p>Password</p>
                             <Input type={this.props.createAccountReducer.showPassword} value={this.props.createAccountReducer.createPassword1} onChange={this.onCreatePassword1Change} />
                             <small id="password-requirements">

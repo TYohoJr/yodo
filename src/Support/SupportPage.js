@@ -16,7 +16,6 @@ class SupportPage extends Component {
         this.uploadHandler = this.uploadHandler.bind(this);
         this.onEmailChange = this.onEmailChange.bind(this);
         this.onDetailsChange = this.onDetailsChange.bind(this);
-        this.onNameChange = this.onNameChange.bind(this);
         this.state = {
             startDate: new Date(),
             file: null,
@@ -45,24 +44,18 @@ class SupportPage extends Component {
         })
         // const fileData = new FormData();
         // fileData.append('file', this.state.file);
-        const userData = {
-            name: this.state.name,
-            email: this.state.email,
+        let userData = {
+            email: sessionStorage.getItem('username'),
             date: this.state.startDate,
             details: this.state.details,
         }
+        console.log(userData)
         axios.post('/supportUpload', { userData, token: sessionStorage.getItem('token') }).then((result) => {
             console.log(result)
             this.props.dispatch({
                 type: 'changePage',
                 currentPage: <SuccessPage />
             })
-        })
-    }
-
-    onNameChange(e) {
-        this.setState({
-            name: e.target.value
         })
     }
 
@@ -90,12 +83,8 @@ class SupportPage extends Component {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <Label>Name</Label>
-                    <Input type="text" placeholder="John Doe" maxLength='50' onChange={this.onNameChange} />
-                </FormGroup>
-                <FormGroup>
                     <Label>Email</Label>
-                    <Input type="email" placeholder="johndoe@gmail.com" maxLength='50' onChange={this.onEmailChange} />
+                    <Input disabled type="email" value={this.props.userDataReducer.data.username} maxLength='50' onChange={this.onEmailChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label>Details:</Label>
