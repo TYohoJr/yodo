@@ -12,27 +12,31 @@ class ResultsTable extends Component {
     }
 
     componentWillMount() {
-        this.setState({
-            tableData: Object.keys(this.props.data).map((key, index, arr) => {
-                console.log(key, index, arr);
-                return <tr>
-                    <td>{key}</td>
-                    <td>{this.props.data[key]}</td>
-                </tr>
-            })
-        });
+        if (this.props.data) {
+            this.setState({
+                tableData: Object.keys(this.props.data).map((key, index, arr) => {
+                    console.log(key, index, arr);
+                    return <tr>
+                        <td>{key}</td>
+                        <td>{this.props.data[key]}</td>
+                    </tr>
+                })
+            });
+        }
     }
 
     componentWillReceiveProps(props) {
-        this.setState({
-            tableData: Object.keys(props.data).map((key, index, arr) => {
-                console.log(key, index, arr);
-                return <tr>
-                    <td>{key}</td>
-                    <td>{props.data[key]}</td>
-                </tr>
-            })
-        });
+        if (props.data) {
+            this.setState({
+                tableData: Object.keys(props.data).map((key, index, arr) => {
+                    console.log(key, index, arr);
+                    return <tr>
+                        <td>{key}</td>
+                        <td>{props.data[key]}</td>
+                    </tr>
+                })
+            });
+        }
     }
 
     render() {

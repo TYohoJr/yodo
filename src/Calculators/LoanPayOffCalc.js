@@ -83,17 +83,16 @@ class LoanPayOffCalc extends Component {
     }
 
     calculate() {
-        // if(this.state.resultsTable) {
-        //     this.resetForm();
-        // }
-        // if (this.state.activeTab === '1') {
+        if(this.state.resultsTable) {
+            this.resetForm();
+        }
+        if (this.state.activeTab === '1') {
 
-        // } else if (this.state.activeTab === '2') {
-            // debugger
+        } else if (this.state.activeTab === '2') {
             this.setState({
                 resultsTable: <ResultsTable data={LoanPayOffMonths({ ...this.state })} />
             });
-        // }
+        }
     }
 
     render() {
